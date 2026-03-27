@@ -12,4 +12,4 @@ Homepage: https://github.com/pop-os/cosmic-screenshot
 Package: cosmic-screenshot
 Architecture: amd64 arm64
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: Cosmic Screenshot Utility
+Description: Screenshot Utility

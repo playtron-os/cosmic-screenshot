@@ -1,16 +1,16 @@
 [Desktop Entry]
-Name=COSMIC Screenshot
-Name[ar]=لقطة شاشة COSMIC
-Name[cs]=Snímky obrazovky COSMIC
+Name=Screenshot
+Name[ar]=لقطة شاشة
+Name[cs]=Snímky obrazovky
 Name[es]=Captura de pantalla
-Name[pl]=Zrzuty ekranu COSMIC
+Name[pl]=Zrzuty ekranu
 Name[pt]=Captura de Tela
 Name[ru]=Снимок экрана
-Name[sv]=COSMIC Skärmbild
-Name[zh_CN]=COSMIC 截图
-Name[nl]=COSMIC schermafdrukken
-Name[af]=COSMIC skermafdrukke
-Name[hu]=COSMIC Képernyőkép
+Name[sv]=Skärmbild
+Name[zh_CN]=截图
+Name[nl]=Schermafdruk
+Name[af]=Skermafdrukke
+Name[hu]=Képernyőkép
 Type=Application
 Exec=cosmic-screenshot
 Terminal=false
