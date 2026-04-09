@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/playtron-os/cosmic-screenshot/compare/v1.0.0...v1.0.1) (2026-04-09)
+
+
+### Bug Fixes
+
+* update app icon ([7fe5978](https://github.com/playtron-os/cosmic-screenshot/commit/7fe597857c0497e66adf0823e2eb7a5babeb5dca))
+
 # 1.0.0 (2026-03-27)
 
 
