@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/playtron-os/cosmic-screenshot/compare/v1.0.3...v1.0.4) (2026-10-06)
+
+
+### Bug Fixes
+
+* **screenshot:** preserve the portal capture destination ([977f1d1](https://github.com/playtron-os/cosmic-screenshot/commit/977f1d1230d8bd3e3702bc3d606b7c1fee01048f))
+
 ## [1.0.3](https://github.com/playtron-os/cosmic-screenshot/compare/v1.0.2...v1.0.3) (2026-08-05)
 
 
