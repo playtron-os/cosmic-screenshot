@@ -1,5 +1,5 @@
 use ashpd::desktop::screenshot::Screenshot;
-use clap::{ArgAction, Parser, command};
+use clap::{ArgAction, Parser};
 use std::{collections::HashMap, fs, os::unix::fs::MetadataExt, path::PathBuf};
 use zbus::{Connection, proxy, zvariant::Value};
 
@@ -32,7 +32,7 @@ struct Args {
         require_equals(true),
         action = ArgAction::Set)]
     notify: bool,
-    /// The directory to save the screenshot to, if not performing an interactive screenshot
+    /// Override the portal destination with an existing directory in noninteractive mode
     #[clap(short, long)]
     save_dir: Option<PathBuf>,
 }
@@ -60,11 +60,11 @@ async fn main() {
     crate::localize::localize();
 
     let args = Args::parse();
-    let picture_dir = (!args.interactive).then(|| {
-        args.save_dir
-            .filter(|dir| dir.is_dir())
-            .unwrap_or_else(|| dirs::picture_dir().expect("failed to locate picture directory"))
-    });
+    let save_dir = if args.interactive {
+        None
+    } else {
+        args.save_dir.filter(|dir| dir.is_dir())
+    };
 
     let response = Screenshot::request()
         .interactive(args.interactive)
@@ -92,11 +92,11 @@ async fn main() {
             let response_path = uri
                 .to_file_path()
                 .unwrap_or_else(|_| panic!("unsupported response URI '{uri}'"));
-            if let Some(picture_dir) = picture_dir {
+            if let Some(save_dir) = save_dir {
                 let date = chrono::Local::now();
                 let filename = format!("Screenshot_{}.png", date.format("%Y-%m-%d_%H-%M-%S"));
-                let path = picture_dir.join(filename);
-                if fs::metadata(&picture_dir)
+                let path = save_dir.join(filename);
+                if fs::metadata(&save_dir)
                     .expect("Failed to get medatata on filesystem for screenshot destination")
                     .dev()
                     != fs::metadata(&response_path)
